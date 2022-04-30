@@ -155,7 +155,7 @@ def make_drone_transforms(image_set):
 
 
 def build(image_set, args):
-    root = Path(args.coco_path)
+    root = Path(args.data_path)
     assert root.exists(), f'provided COCO Dronevis path {root} does not exist'
     mode = 'instances'
     PATHS = {
