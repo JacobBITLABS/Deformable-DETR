@@ -10,5 +10,5 @@ python3 -u main.py \
     --output_dir ${EXP_DIR} \
     --dataset_file dronevis \
     --epochs 50 \
-    --data_path ../dronevis_dataset/ \
+    --data_path ../visDrone2019_mot_dataset/ \
     ${PY_ARGS}
