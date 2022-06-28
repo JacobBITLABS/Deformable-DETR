@@ -159,8 +159,8 @@ def build(image_set, args):
     assert root.exists(), f'provided COCO Dronevis path {root} does not exist'
     mode = 'instances'
     PATHS = {
-        "train": (root / "visDrone_train/train", root / f'visDrone_train'),
-        "val": (root / "visDrone_val/val", root / f'visDrone_val'),
+        "train": (root / "visDrone_train/train", root / f'visDrone_train/train.json'),
+        "val": (root / "visDrone_val/val", root / f'visDrone_val/val.json'),
     }
 
     img_folder, ann_file = PATHS[image_set]
