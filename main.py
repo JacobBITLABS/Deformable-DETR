@@ -226,6 +226,8 @@ def main(args):
 
     output_dir = Path(args.output_dir)
     if args.resume:
+        print()
+        print("[Resume]")
         if args.resume.startswith('https'):
             checkpoint = torch.hub.load_state_dict_from_url(
                 args.resume, map_location='cpu', check_hash=True)
@@ -237,7 +239,8 @@ def main(args):
         # print("[CHECKPOINT]")
         # print(checkpoint)
 
-        missing_keys, unexpected_keys = model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
+        # missing_keys, unexpected_keys = model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
+        missing_keys, unexpected_keys = model_without_ddp.load_state_dict(torch.load(args.resume))
 
         unexpected_keys = [k for k in unexpected_keys if not (k.endswith('total_params') or k.endswith('total_ops'))]
         if len(missing_keys) > 0:
