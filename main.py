@@ -183,7 +183,7 @@ def main(args):
         return out
 
     for n, p in model_without_ddp.named_parameters():
-        print(n)
+        # print(n)
 
     param_dicts = [
         {
@@ -235,7 +235,7 @@ def main(args):
         # print the state dict
         print()
         print("[CHECKPOINT]")
-        # print(checkpoint)
+        print(checkpoint)
 
         missing_keys, unexpected_keys = model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
 
