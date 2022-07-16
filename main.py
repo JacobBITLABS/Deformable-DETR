@@ -182,8 +182,8 @@ def main(args):
                 break
         return out
 
-    # for n, p in model_without_ddp.named_parameters():
-    #     print(n)
+    for n, p in model_without_ddp.named_parameters():
+        print(n)
 
     param_dicts = [
         {
@@ -232,6 +232,7 @@ def main(args):
             checkpoint = torch.hub.load_state_dict_from_url(
                 args.resume, map_location='cpu', check_hash=True)
         else:
+            print("Loading local model...")
             checkpoint = torch.load(args.resume, map_location='cpu')
 
         # print the state dict
