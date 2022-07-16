@@ -233,7 +233,7 @@ def main(args):
                 args.resume, map_location='cpu', check_hash=True)
         else:
             print("Loading local model...")
-            checkpoint = torch.load(args.resume, map_location='cpu')
+            checkpoint = torch.load(args.resume) # map_location='cpu')
 
         # print the state dict
         # print()
