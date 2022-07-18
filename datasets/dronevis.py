@@ -153,7 +153,7 @@ def make_drone_transforms(image_set):
     
     if image_set == 'test':
         return T.Compose([
-            T.RandomResize([800], max_size=1333),
+            # T.RandomResize([800], max_size=1333),
             normalize,
         ])
 
