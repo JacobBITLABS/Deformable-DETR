@@ -182,6 +182,7 @@ def main(args):
     
     # test set:
     if args.eval:
+        print("Dataloader for test initiated!")
         data_loader_test = DataLoader(dataset_test, args.batch_size, sampler=sampler_test,
                                  drop_last=False, collate_fn=utils.collate_fn, num_workers=args.num_workers,
                                  pin_memory=True)
@@ -292,6 +293,9 @@ def main(args):
     
     # evaluate on test-set
     if args.eval:
+        print("******************************")
+        print("         EVALUATING")
+        print("******************************")
         test_stats, coco_evaluator = evaluate(model, criterion, postprocessors,
                                               data_loader_test, base_ds, device, args.output_dir)
         if args.output_dir:
