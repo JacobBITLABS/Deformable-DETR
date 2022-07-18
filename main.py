@@ -167,7 +167,7 @@ def main(args):
         sampler_val = torch.utils.data.SequentialSampler(dataset_val)
     
     if args.eval:
-        sampler_test = torch.utils.data.SequentialSampler(sampler_test)
+        sampler_test = torch.utils.data.SequentialSampler(dataset_test)
 
     batch_sampler_train = torch.utils.data.BatchSampler(
         sampler_train, args.batch_size, drop_last=True)
