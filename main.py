@@ -234,6 +234,8 @@ def main(args):
         else:
             print("Loading local model...")
             checkpoint = torch.load(args.resume) # map_location='cpu')
+            print("CHECKPOINT")
+            print(checkpoint)
 
         # print the state dict
         # print()
@@ -266,6 +268,7 @@ def main(args):
                 lr_scheduler.base_lrs = list(map(lambda group: group['initial_lr'], optimizer.param_groups))
             lr_scheduler.step(lr_scheduler.last_epoch)
             args.start_epoch = checkpoint['epoch'] + 1
+            
         # check the resumed model
         if not args.eval:
             test_stats, coco_evaluator = evaluate(
@@ -301,7 +304,7 @@ def main(args):
                     'args': args,
                 }, checkpoint_path)
 
-        test_stats, coco_evaluator = evaluate(
+        test_stats, coco_evaluator = evaluate (
             model, criterion, postprocessors, data_loader_val, base_ds, device, args.output_dir
         )
 
