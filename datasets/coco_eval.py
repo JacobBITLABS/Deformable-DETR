@@ -51,7 +51,12 @@ class CocoEvaluator(object):
             # suppress pycocotools prints
             with open(os.devnull, 'w') as devnull:
                 with contextlib.redirect_stdout(devnull):
-                    coco_dt = COCO.loadRes(self.coco_gt, results) if results else COCO()
+                    # coco_dt = COCO.loadRes(self.coco_gt, results) if results else COCO()
+                    if results:
+                        print("coco_gt: ", self.coco_gt, " results: ", results)
+                        coco_dt = COCO.loadRes(self.coco_gt, results) 
+                    else:
+                        coco_dt = COCO()
             coco_eval = self.coco_eval[iou_type]
 
             coco_eval.cocoDt = coco_dt
