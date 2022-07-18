@@ -161,6 +161,7 @@ def build(image_set, args):
     PATHS = {
         "train": (root / "visDrone_train/train", root / f'visDrone_train/train.json'),
         "val": (root / "visDrone_val/val", root / f'visDrone_val/val.json'),
+        "test": (root / "visDrone2019_test/test", root / f'visDrone2019_test/test.json')
     }
 
     img_folder, ann_file = PATHS[image_set]
