@@ -235,7 +235,7 @@ def main(args):
             print("Loading local model...")
             checkpoint = torch.load(args.resume) # map_location='cpu')
             print("CHECKPOINT")
-            print(checkpoint)
+            assert(isinstance(checkpoint, dict))
 
         # print the state dict
         # print()
