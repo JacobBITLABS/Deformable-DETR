@@ -14,7 +14,6 @@ import json
 import random
 import time
 from pathlib import Path
-from h11 import Data
 
 import numpy as np
 import torch
