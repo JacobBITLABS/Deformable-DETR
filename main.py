@@ -236,7 +236,7 @@ def main(args):
             checkpoint = torch.load(args.resume) # map_location='cpu')
             print("CHECKPOINT")
             assert(isinstance(checkpoint, dict))
-            for key, _ in checkpoint.iteritems() :
+            for key, _ in checkpoint.items() :
                 print(key) 
 
         # print the state dict
